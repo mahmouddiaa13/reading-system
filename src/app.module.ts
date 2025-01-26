@@ -4,9 +4,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoggerModule } from './logger/logger.module';
 import { RequestIdMiddleware } from './request-id.middleware';
+import { DbModule } from './db/db.module';
 
 @Module({
-  imports: [LoggerModule, ConfigModule.forRoot({})],
+  imports: [LoggerModule, ConfigModule.forRoot({ isGlobal: true }), DbModule],
   controllers: [AppController],
   providers: [AppService],
 })
